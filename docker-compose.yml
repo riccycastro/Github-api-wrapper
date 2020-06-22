@@ -1,0 +1,27 @@
+version: '3.0'
+
+services:
+  cocus-backend-application:
+    build: .
+    container_name: cocus-backend-application
+    volumes:
+      - ./application:/usr/src/app/cocus-backend-application
+    environment:
+      PORT: 3333
+    networks:
+      localnet:
+        ipv4_address: 172.52.0.5
+
+  cocus-backend-webserver:
+    build: ./webserver
+    container_name: cocus-backend-webserver
+    networks:
+      localnet:
+        ipv4_address: 172.52.0.4
+
+networks:
+  localnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.52.0.0/16
