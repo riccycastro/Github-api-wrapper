@@ -8,6 +8,8 @@ services:
       - ./application:/usr/src/app/cocus-backend-application
     environment:
       PORT: 3333
+    ports:
+    - 3333:3333
     networks:
       localnet:
         ipv4_address: 172.52.0.5
@@ -17,7 +19,7 @@ services:
     container_name: cocus-backend-webserver
     networks:
       localnet:
-        ipv4_address: 172.52.0.4
+        ipv4_address: 172.52.0.7
 
 networks:
   localnet:
