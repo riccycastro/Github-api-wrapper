@@ -23,7 +23,7 @@ _To make it easier, the application container have the port 3333 exposed to your
 [Docker-compose]: https://docs.docker.com/compose/install/
 
 
-### Docker less
+### Dockerless
 Go to the application folder cocus-backend-developer-task/application and install the dependencies
 
 ``` bash
