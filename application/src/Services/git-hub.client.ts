@@ -1,5 +1,5 @@
 import {GitHubClientInterface} from "./Interfaces/git-hub.client.interface";
-import {RequestProviderInterface} from "./Provider/Interfaces/requestProviderInterface";
+import {RequestProviderInterface} from "./Provider/Interfaces/request.provider.Interface";
 import {Inject, NotFoundException} from "@nestjs/common";
 import {BranchRetrieved, RepositoryRetrieved} from "../Types/type";
 import {ConfigService} from "@nestjs/config";
@@ -15,7 +15,7 @@ export class GitHubClient implements GitHubClientInterface {
         this.baseUrl = configService.get<string>('GIT_REPOSITORY_API_URL');
     }
 
-    async getRepositories(username: string) {
+    async getRepositories(username: string): Promise<RepositoryRetrieved[]> {
         try {
             return await this.requestProvider.get(`${this.baseUrl}/users/${username}/repos`)
         } catch (e) {
@@ -44,5 +44,4 @@ export class GitHubClient implements GitHubClientInterface {
     removeForkRepositories(repositories: RepositoryRetrieved[]): RepositoryRetrieved[] {
         return repositories.filter(repository => !repository.fork)
     }
-
 }

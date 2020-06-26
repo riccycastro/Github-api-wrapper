@@ -18,7 +18,7 @@ export class AppService implements AppServiceInterface {
     const repositories = await this.gitHubClient.getRepositories(username);
     const sourceRepositories = this.gitHubClient.removeForkRepositories(repositories);
 
-    const getBranchTasks: Promise<RepositoryRetrieved>[]= [];
+    const getBranchTasks: Promise<RepositoryRetrieved>[] = [];
 
     for await (const sourceRepository of sourceRepositories) {
       getBranchTasks.push(this.getBranches(username, sourceRepository));

@@ -1,4 +1,4 @@
-import {RequestProviderInterface} from "./Interfaces/requestProviderInterface";
+import {RequestProviderInterface} from "./Interfaces/request.provider.Interface";
 import axios from 'axios'
 
 export class AxiosProvider implements RequestProviderInterface {

@@ -1,7 +1,3 @@
-export interface StringIndexedByString {
-    [key: string]: string
-}
-
 export interface RepositoryRetrieved {
     name: string;
     owner: {
