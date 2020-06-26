@@ -17,7 +17,7 @@ export class GitHubClient implements GitHubClientInterface {
 
     async getRepositories(username: string) {
         try {
-            return await this.requestProvider.get(`${this.baseUrl}/users/${username}/repos`, {})
+            return await this.requestProvider.get(`${this.baseUrl}/users/${username}/repos`)
         } catch (e) {
             console.log(username, e)
 
@@ -30,7 +30,7 @@ export class GitHubClient implements GitHubClientInterface {
 
     async getBranches(username: string, repositoryName: string): Promise<BranchRetrieved[]> {
         try {
-            return await this.requestProvider.get(`${this.baseUrl}/repos/${username}/${repositoryName}/branches`, {})
+            return await this.requestProvider.get(`${this.baseUrl}/repos/${username}/${repositoryName}/branches`)
         } catch (e) {
             console.log(username, repositoryName, e)
 
