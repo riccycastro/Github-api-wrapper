@@ -1,15 +1,27 @@
-import {ExceptionFilter, Catch, HttpException, ArgumentsHost, HttpStatus, NotFoundException} from '@nestjs/common';
+import {ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus} from '@nestjs/common';
 
 @Catch()
 export class ErrorFilter implements ExceptionFilter {
     catch(error: Error, host: ArgumentsHost) {
         let response = host.switchToHttp().getResponse();
-        let status = (error instanceof HttpException) ? error.getStatus(): HttpStatus.INTERNAL_SERVER_ERROR;
 
-        if (error instanceof NotFoundException) {
-            return response.status(status).send({status: HttpStatus.NOT_FOUND, Message: error.message.message});
+        if (error instanceof HttpException) {
+            return response
+                .status(error.getStatus())
+                .send({
+                    status: error.getStatus(),
+                    Message: error.message.message
+                });
         }
 
-        return response.status(500).send(error.message)
+        // log critical error stack
+        console.log(error.stack)
+
+        return response
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .send({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                Message: error.message
+            })
     }
 }
