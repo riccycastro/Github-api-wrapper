@@ -1,10 +1,12 @@
-import {CacheModule, Module} from '@nestjs/common';
+import {CacheModule, MiddlewareConsumer, Module, NestModule} from '@nestjs/common';
 import {AppController} from './Controllers/app.controller';
 import {AppService} from './Services/app.service';
 import {GitHubClient} from "./Services/git-hub.client";
 import {AxiosProvider} from "./Services/Provider/axios.provider";
 import {RepositoryConverter} from "./Dtos/Converters/repository.converter";
 import {BranchConverter} from "./Dtos/Converters/branch.converter";
+import {ConfigModule} from "@nestjs/config";
+import {ValidateApplicationJsonMiddleware} from "./Middlewares/validate-application-json.middleware";
 
 @Module({
   imports: [
@@ -20,5 +22,11 @@ import {BranchConverter} from "./Dtos/Converters/branch.converter";
     {provide: 'BranchConverterInterface', useClass: BranchConverter},
   ],
 })
-export class AppModule {
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer
+        .apply(ValidateApplicationJsonMiddleware)
+        .forRoutes('*')
+  }
+
 }
