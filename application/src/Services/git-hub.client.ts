@@ -2,21 +2,24 @@ import {GitHubClientInterface} from "./Interfaces/git-hub.client.interface";
 import {RequestProviderInterface} from "./Provider/Interfaces/requestProviderInterface";
 import {Inject, NotFoundException} from "@nestjs/common";
 import {BranchRetrieved, RepositoryRetrieved} from "../Types/type";
+import {ConfigService} from "@nestjs/config";
 
 export class GitHubClient implements GitHubClientInterface {
 
-    private baseUrl = 'https://api.github.com';
+    private readonly baseUrl: string;
 
     constructor(
-        @Inject('RequestProviderInterface') private readonly requestProvider: RequestProviderInterface
+        @Inject('RequestProviderInterface') private readonly requestProvider: RequestProviderInterface,
+        private readonly configService: ConfigService
     ) {
+        this.baseUrl = configService.get<string>('GIT_REPOSITORY_API_URL');
     }
 
     async getRepositories(username: string) {
         try {
             return await this.requestProvider.get(`${this.baseUrl}/users/${username}/repos`, {})
         } catch (e) {
-            console.log(e, username)
+            console.log(username, e)
 
             if (e?.response?.status === 404) {
                 throw new NotFoundException(`username ${username} not found`);

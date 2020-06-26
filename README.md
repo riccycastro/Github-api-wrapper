@@ -19,19 +19,30 @@ Now you can access the application here: http://api.cocus-backend.local/
 
 _To make it easier, the application container have the port 3333 exposed to your local machine so you can access the application here: http://localhost:3333_
 
-[Docker]: https://docs.docker.com/engine/install/ubuntu/
-[Docker-compose]: https://docs.docker.com/compose/install/
-
-
+___
 ### Dockerless
+
+First, you need to set some configurations manually. Clone the _.env.example_ and remove the example from the cloned one. Specify the __PORT__ and __HEADER_ACCEPT__ though they are not mandatory, the only required one is the __GIT_REPOSITORY_API_URL__
+
+_Note: Env vars will override the .env file configurations_
+
 Go to the application folder cocus-backend-developer-task/application and install the dependencies
 
 ``` bash
 npm install
 ```
 
-to start the application just run
+And start the application
 
 ``` bash
 npm run start:dev
 ```
+
+___
+#### Lastly
+
+Normally I would split the docker project from the application but for the sake of simplicity they are in the same project.
+
+
+[Docker]: https://docs.docker.com/engine/install/ubuntu/
+[Docker-compose]: https://docs.docker.com/compose/install/

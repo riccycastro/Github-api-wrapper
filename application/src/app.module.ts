@@ -7,7 +7,10 @@ import {RepositoryConverter} from "./Dtos/Converters/repository.converter";
 import {BranchConverter} from "./Dtos/Converters/branch.converter";
 
 @Module({
-  imports: [CacheModule.register()],
+  imports: [
+    CacheModule.register(),
+    ConfigModule.forRoot({isGlobal: true}),
+  ],
   controllers: [AppController],
   providers: [
     {provide: 'AppServiceInterface', useClass: AppService},
