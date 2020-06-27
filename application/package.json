@@ -27,6 +27,7 @@
     "@nestjs/platform-express": "^6.10.14",
     "axios": "^0.19.2",
     "cache-manager": "^3.3.0",
+    "node-mocks-http": "^1.8.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.4"

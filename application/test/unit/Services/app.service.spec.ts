@@ -1,6 +1,6 @@
 import {AppService} from "../../../src/Services/app.service";
 import {Test, TestingModule} from "@nestjs/testing";
-import {ConverterInterface} from "../../../src/Dtos/Converters/converter.interface";
+import {ConverterInterface} from "../../../src/Dtos/Converters/Interfaces/converter.interface";
 import {RepositoryConverter} from "../../../src/Dtos/Converters/repository.converter";
 import {RepositoryDto} from "../../../src/Dtos/repository.dto";
 import {RepositoryRetrieved} from "../../../src/Types/type";
