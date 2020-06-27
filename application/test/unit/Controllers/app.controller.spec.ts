@@ -2,6 +2,7 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {AppController} from '../../../src/Controllers/app.controller';
 import {AppService} from '../../../src/Services/app.service';
 import {AppServiceInterface} from "../../../src/Services/Interfaces/app.service.interface";
+
 const data  = require('../../helpers/payloads/repository.json');
 
 
@@ -41,26 +42,26 @@ describe('AppController', () => {
     jest.clearAllMocks();
   });
 
-  describe('getRepository', () => {
+  describe('getRepositories', () => {
     it('should return a RepositoryDto array', async () => {
       const repositoryDtoData = data.repositoriesDto
 
       const getRepositorySpy = jest
-          .spyOn(appService, 'getRepository')
+          .spyOn(appService, 'getRepositories')
           .mockImplementation(async () => repositoryDtoData);
 
       const expectedResult = JSON.parse(JSON.stringify(repositoryDtoData));
 
-      expect(await appController.getRepository('phakeUsername')).toEqual(expectedResult);
+      expect(await appController.getRepositories('phakeUsername')).toEqual(expectedResult);
       expect(getRepositorySpy).toHaveBeenCalledTimes(1);
     });
 
     it('should return an empty RepositoryDto array', async() => {
       const getRepositorySpy = jest
-          .spyOn(appService, 'getRepository')
+          .spyOn(appService, 'getRepositories')
           .mockImplementation(async () => []);
 
-      expect(await appController.getRepository('phakeUsername')).toEqual([]);
+      expect(await appController.getRepositories('phakeUsername')).toEqual([]);
       expect(getRepositorySpy).toHaveBeenCalledTimes(1);
     })
   });

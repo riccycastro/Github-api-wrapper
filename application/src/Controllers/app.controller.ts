@@ -12,7 +12,7 @@ export class AppController {
     @UseInterceptors(CacheInterceptor)
     @CacheTTL(5)
     @Get(':username')
-    async getRepository(@Param('username') username: string): Promise<RepositoryDto[]> {
-        return await this.appService.getRepository(username);
+    async getRepositories(@Param('username') username: string): Promise<RepositoryDto[]> {
+        return await this.appService.getRepositories(username);
     }
 }

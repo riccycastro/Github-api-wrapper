@@ -14,13 +14,13 @@ export class AppService implements AppServiceInterface {
   ) {
   }
 
-  async getRepository(username: string): Promise<RepositoryDto[]> {
+  async getRepositories(username: string): Promise<RepositoryDto[]> {
     const repositories = await this.gitHubClient.getRepositories(username);
     const sourceRepositories = this.gitHubClient.removeForkRepositories(repositories);
 
     const getBranchTasks: Promise<RepositoryRetrieved>[] = [];
 
-    for await (const sourceRepository of sourceRepositories) {
+    for (const sourceRepository of sourceRepositories) {
       getBranchTasks.push(this.getBranches(username, sourceRepository));
     }
 
