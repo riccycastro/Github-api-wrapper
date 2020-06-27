@@ -1,9 +1,9 @@
 import {Injectable, NestMiddleware, NotAcceptableException} from "@nestjs/common";
-import {Request} from "express";
+import {Request, Response} from "express";
 import {ConfigService} from "@nestjs/config";
 
 @Injectable()
-export class ValidateApplicationJsonMiddleware implements NestMiddleware {
+export class HeaderValidatorMiddleware implements NestMiddleware {
     constructor(
         private readonly configService: ConfigService,
     ) {

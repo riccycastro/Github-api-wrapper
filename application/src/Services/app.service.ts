@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@nestjs/common';
 import {AppServiceInterface} from "./Interfaces/app.service.interface";
 import {GitHubClientInterface} from "./Interfaces/git-hub.client.interface";
-import {ConverterInterface} from "../Dtos/Converters/converter.interface";
+import {ConverterInterface} from "../Dtos/Converters/Interfaces/converter.interface";
 import {RepositoryDto} from "../Dtos/repository.dto";
 import {RepositoryRetrieved} from "../Types/type";
 

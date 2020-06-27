@@ -6,7 +6,7 @@ import {AxiosProvider} from "./Services/Provider/axios.provider";
 import {RepositoryConverter} from "./Dtos/Converters/repository.converter";
 import {BranchConverter} from "./Dtos/Converters/branch.converter";
 import {ConfigModule} from "@nestjs/config";
-import {ValidateApplicationJsonMiddleware} from "./Middlewares/validate-application-json.middleware";
+import {HeaderValidatorMiddleware} from "./Middlewares/header-validator.middleware";
 
 @Module({
   imports: [
@@ -22,11 +22,11 @@ import {ValidateApplicationJsonMiddleware} from "./Middlewares/validate-applicat
     {provide: 'BranchConverterInterface', useClass: BranchConverter},
   ],
 })
+
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {
     consumer
-        .apply(ValidateApplicationJsonMiddleware)
+        .apply(HeaderValidatorMiddleware)
         .forRoutes('*')
   }
-
 }

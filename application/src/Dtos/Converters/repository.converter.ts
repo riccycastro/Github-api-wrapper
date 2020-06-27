@@ -2,7 +2,7 @@ import {AbstractDtoConverter} from "./abstract.dto.converter";
 import {RepositoryDto} from "../repository.dto";
 import {Inject, Injectable} from "@nestjs/common";
 import {BranchRetrieved, RepositoryRetrieved} from "../../Types/type";
-import {ConverterInterface} from "./converter.interface";
+import {ConverterInterface} from "./Interfaces/converter.interface";
 import {BranchDto} from "../branch.dto";
 
 @Injectable()

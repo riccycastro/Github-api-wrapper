@@ -14,8 +14,8 @@ export class ErrorFilter implements ExceptionFilter {
                 });
         }
 
-        // log critical error stack
-        console.log(error.stack)
+        // log critical error
+        console.log(error)
 
         return response
             .status(HttpStatus.INTERNAL_SERVER_ERROR)

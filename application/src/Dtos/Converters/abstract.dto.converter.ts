@@ -1,4 +1,4 @@
-import {ConverterInterface} from "./converter.interface";
+import {ConverterInterface} from "./Interfaces/converter.interface";
 
 export abstract class AbstractDtoConverter<Dto, Type> implements ConverterInterface<Dto, Type> {
     abstract convertToDto(data: Type): Dto;
