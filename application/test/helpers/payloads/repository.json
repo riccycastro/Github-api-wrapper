@@ -600,5 +600,51 @@
       "watchers": 25,
       "default_branch": "master"
     }
+  ],
+  "repositoriesResult": [
+    {
+      "branches": [
+        {
+          "name": "LyaLya-pie-patch",
+          "sha": "0f69ad5cf7ff57e91487568cdd2d9c8a9d2e855a"
+        },
+        {
+          "name": "jmarlena-patch-1",
+          "sha": "a6f5072795a54e9024fed3431faf13880a89cad2"
+        },
+        {
+          "name": "master",
+          "sha": "d09e445076bbcd163fc9abfbe6d2fce09a611281"
+        },
+        {
+          "name": "octocat-patch-1",
+          "sha": "fd6b08e5363774c215703ee918967c646dfd3565"
+        }
+      ],
+      "name": "git-consortium",
+      "ownerLogin": "octocat"
+    },
+    {
+      "branches": [
+        {
+          "name": "LyaLya-pie-patch",
+          "sha": "0f69ad5cf7ff57e91487568cdd2d9c8a9d2e855a"
+        },
+        {
+          "name": "jmarlena-patch-1",
+          "sha": "a6f5072795a54e9024fed3431faf13880a89cad2"
+        },
+        {
+          "name": "master",
+          "sha": "d09e445076bbcd163fc9abfbe6d2fce09a611281"
+        },
+        {
+          "name": "octocat-patch-1",
+          "sha": "fd6b08e5363774c215703ee918967c646dfd3565"
+        }
+      ],
+      "name": "hello-worId",
+      "ownerLogin": "octocat"
+    }
   ]
 }

@@ -21,7 +21,7 @@ export class ErrorFilter implements ExceptionFilter {
             .status(HttpStatus.INTERNAL_SERVER_ERROR)
             .send({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                Message: error.message
+                Message: `Something went wrong while trying to fulfill your request. Please try again later`
             })
     }
 }

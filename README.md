@@ -38,6 +38,21 @@ And start the application
 npm run start:dev
 ```
 
+---
+To run all tests
+``` bash
+    npm run test
+```
+
+E2E tests
+``` bash
+    npm run test:e2e
+```
+
+Unit tests
+``` bash
+    npm run test:unit
+```
 ___
 #### Lastly
 
