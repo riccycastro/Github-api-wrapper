@@ -1,5 +1,8 @@
 # cocus backend developer task
 
+The purpose of this project is to allow the end client to get a Github account repositories and all current active branches from a unique endpoint call.
+____
+
 ### Docker setup
 
 First, make sure that you have [Docker] and [Docker-compose] installed in your machine.
