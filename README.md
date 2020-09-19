@@ -1,6 +1,23 @@
 # cocus backend developer task
 
 The purpose of this project is to allow the end client to get a Github account repositories and all current active branches from a unique endpoint call.
+
+### The problem 
+As an api consumer, given username and header “Accept: application/json”, the consumer would like
+to list all his github repositories, which are not forks. The required information in the
+response, are:
+1. Repository Name
+2. Owner Login
+3. For each branch it’s name and last commit sha
+
+As an api consumer, given header “Accept: application/xml”, I would like to receive 406
+response in such a format:
+```
+{
+    “status”: ${responseCode}   
+    “Message”: ${whyHasItHappened}
+}
+```
 ____
 
 ### Docker setup
